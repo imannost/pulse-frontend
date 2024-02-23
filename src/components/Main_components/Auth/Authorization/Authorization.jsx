@@ -31,7 +31,7 @@ const Authorization = ({setStage}) => {
           <h3 className="auth_title">Войти</h3>
 
           <div className="mb-3">
-            <label className="auth_label mb-2">Номер телефона или email</label>
+            {/*<label className="auth_label mb-2">Номер телефона или email</label>*/}
             <Input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Номер телефона или Email"/>
           </div>
 
