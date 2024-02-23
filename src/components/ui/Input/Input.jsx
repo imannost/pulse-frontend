@@ -16,7 +16,7 @@ const Input = ({
 
     return (
         <div className={classNames("input-wrapper", className)} style={wrapperStyle}>
-            <div className="container">
+            <div className="container-input">
                 {icon && <Icon type={icon} width="22" heigth="22" />}
                 <input
                 type="text"

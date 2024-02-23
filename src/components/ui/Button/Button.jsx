@@ -13,6 +13,7 @@ const Button = ({ onClick, className, icon, text, theme, iconAfter, disabled }) 
                 "main-btn__blue-outline": theme === "blue-outline",
                 "main-btn__yellow": theme === "yellow",
                 "main-btn__white": theme === "white",
+                "main-btn__gradient": theme === "gradient",
             }
          )}>
             {icon && <Icon type={icon} width="22" height="22"/>}
