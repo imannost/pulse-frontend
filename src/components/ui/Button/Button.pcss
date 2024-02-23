@@ -1,5 +1,5 @@
 .main-btn {
-    border-radius: 100px;
+    border-radius: 15px;
     padding: 0 16px 0 16px;
     display: flex;
     justify-content: center;
@@ -32,6 +32,29 @@
             }
         }
     }
+
+    &__gradient {
+        color: white;
+        height: 50px;
+        background-color: #FFC541;
+        background: linear-gradient(82.55deg, #3131DF -17.83%, #FF2A23 100%);
+
+        p {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0px;
+            margin: 0 !important;
+        }
+
+        svg {
+            fill: #061D32;
+        }
+
+        &:hover {
+            background-color: #EEAD17;
+        }
+    }
+
 
     &__disable {
         pointer-events: none;
