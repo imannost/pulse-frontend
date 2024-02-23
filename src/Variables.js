@@ -1,0 +1,3 @@
+let API_SERVER_VAL = ''
+API_SERVER_VAL = "http://192.168.0.80:8080";
+export const API_SERVER = API_SERVER_VAL;
