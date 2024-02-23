@@ -11,7 +11,8 @@ const Input = ({
      icon,
      placeholder,
      disabled,
-     pattern
+     pattern,
+     type,
     }) => {
 
     return (
@@ -19,7 +20,7 @@ const Input = ({
             <div className="container-input">
                 {icon && <Icon type={icon} width="22" heigth="22" />}
                 <input
-                type="text"
+                type={type}
                 onChange={onChange}
                 placeholder={placeholder}
                 value={value}
@@ -34,6 +35,7 @@ const Input = ({
 Input.defaultProps = {
     disabled: false,
     placeholder: "Value",
+    type: "text",
 };
 
 export default Input;
