@@ -2,7 +2,7 @@ import React from 'react';
 import "./About-Dononation.pcss"
 import { Input, Button, Icon } from "/src/components/ui";
 
-const About_Donation = () => {
+const AboutDonation = () => {
     return (
       <div>
         <h2>Как стать донором</h2>
@@ -18,4 +18,4 @@ const About_Donation = () => {
     );
 };
 
-export default About_Donation;
+export default AboutDonation;

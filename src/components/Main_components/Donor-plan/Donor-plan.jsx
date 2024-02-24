@@ -4,6 +4,10 @@ import { Icon, ProgressBar, Button } from "/src/components/ui";
 import Type from "./Type/Type.jsx"
 import Date from "./Date/Date.jsx"
 import Payment from "./Payment/Payment.jsx"
+import Place from "./Place/Place.jsx"
+import City from "./City/City.jsx"
+import BloodCenter from "./BloodCenter/BloodCenter.jsx"
+import DonationSummary from "./DonationSummary/DonationSummary.jsx"
 import axios from "axios";
 
 
@@ -17,6 +21,11 @@ const DonorPlan = () => {
             case 1: return <Type />
             case 2: return <Date />
             case 3: return <Payment />
+            case 4: return <Place />
+            case 5: return <City />
+            case 6: return <BloodCenter />
+            case 7: return <DonationSummary />
+            case 8: return <Final />
         }
     }
 
