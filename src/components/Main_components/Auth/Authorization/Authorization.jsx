@@ -14,7 +14,7 @@ const Authorization = ({setStage}) => {
         password: password,
       })
       .then((response) => {
-        console.log(response)
+        console.log(123, response.headers)
       })
       .catch((err) => {
         console.log(err)
