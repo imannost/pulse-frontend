@@ -21,6 +21,9 @@ module.exports = {
     port: 3000,
     hot: true,
     historyApiFallback: true,
+    client: {
+        overlay: false,
+    }
     //host: '0.0.0.0',//your ip address
     //port: 49,
     //allowedHosts: 'all'
@@ -131,11 +134,6 @@ module.exports = {
             test: /\.svg$/,
             use: [{ loader: 'svg-sprite-loader' }],
         },
-        {
-            test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
-            exclude: /node_modules/,
-            use: ['file-loader?name=[name].[ext]'] // ?name=[name].[ext] is only necessary to preserve the original file name
-        }
    ]
  },
  plugins: [
