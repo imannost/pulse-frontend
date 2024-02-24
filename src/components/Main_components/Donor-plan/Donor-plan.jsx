@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Donor-plan.pcss";
 import { Icon, ProgressBar, Button } from "/src/components/ui";
 import Type from "./Type/Type.jsx"
 import Date from "./Date/Date.jsx"
 import Payment from "./Payment/Payment.jsx"
+import axios from "axios";
 
 
 const DonorPlan = () => {
 
     const [stage, setStage] = useState(1)
+    const [data, setData] = useState({})
 
     const stageComponent = () => {
         switch (stage) {
@@ -18,8 +20,26 @@ const DonorPlan = () => {
         }
     }
 
+    const test = () => {
+        axios.get("https://hackaton.donorsearch.org/api/auth/me/")
+        .then((response) => {
+            console.log(response)
+            setData(response.data)
+          })
+        .catch((err) => {
+        console.log(err)
+        });
+    
+    }
+
+    useEffect(() => {
+        test()
+    }, [])
+    
+
     return (
         <div className="plan_main">
+            {data}
             <p onClick={() => setStage(prevState => prevState - 1)}>назад</p>
             <div className="plan_wrapper">
                 <div style={{width: "100%"}}>
