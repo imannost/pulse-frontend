@@ -7,8 +7,8 @@ const Button = ({ onClick, isPushed, text  }) => {
     return (
         <div onClick={onClick}
          className={classNames(
-            "main-btn", {
-                "main-btn__pushed": isPushed,
+            "main-push-btn", {
+                "main-push-btn__pushed": isPushed,
             }
          )}>
             <p>{text}</p>

@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import "../Auth.pcss";
 import { Input, Button, Icon } from "/src/components/ui";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import  { setIsAuthorized } from '/src/store/authSlice'
 
 const Authorization = ({setStage}) => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+
+    const dispatch = useDispatch()
 
     const login = () => {
       axios.post("https://hackaton.donorsearch.org/api/auth/login/", {
@@ -14,7 +18,7 @@ const Authorization = ({setStage}) => {
         password: password,
       })
       .then((response) => {
-        console.log(123, response.headers)
+        dispatch(setIsAuthorized({is_authorized: true}))
       })
       .catch((err) => {
         console.log(err)
