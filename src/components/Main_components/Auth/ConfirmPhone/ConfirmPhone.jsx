@@ -2,10 +2,13 @@ import React, {useState} from "react";
 import "../Auth.pcss";
 import {Input, Button, Icon} from "/src/components/ui";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
-const Authorization = ({setStage, phone, user_id}) => {
-    const [code, setCode] = useState(0)
-    const [confirmComplete, setConfirmComplete] = useState(false);
+const Authorization = ({setStage}) => {
+    const [code, setCode] = useState("")
+
+    const phone = useSelector(state => state.register.phone)
+    const user_id = useSelector(state => state.register.user_id)
 
 
     const resend_code = async () => {
@@ -18,7 +21,7 @@ const Authorization = ({setStage, phone, user_id}) => {
             .catch((err) => {
                 console.log(err)
             });
-        setCode(0)
+        setCode("")
     }
 
 
@@ -29,49 +32,42 @@ const Authorization = ({setStage, phone, user_id}) => {
             phone: phone,
         })
             .then((response) => {
+                setStage("auth")
                 console.log(response)
-                setConfirmComplete(true)
             })
             .catch((err) => {
                 console.log(err)
-                setCode(0)
-                setConfirmComplete(false)
+                setCode("")
             });
     }
 
-    if (confirmComplete) {
-        return (
+    return (
+        <div className="auth_main">
+            <div className="auth-icon-wrapper">
+                <Icon type="donorsearch_logo" width="43" height="30"/>
+            </div>
+
+            <div className="auth_form">
+                <h3 className="auth_title">Подтвердите ваш номер</h3>
+
+                <div className="mb-3">
+                    <label className="auth_label mb-2">Мы отправили код на {phone}</label>
+                    <Input value={code} onChange={(e) => setCode(e.target.value)}
+                            placeholder="Введите код из СМС"/>
+                </div>
+            </div>
+
             <div>
+                <div className="d-grid mb-2">
+                    <Button onClick={check_code} text="Проверить код" theme="gradient"/>
+                </div>
+                <label onClick={resend_code} className="auth-link-grey">Отправить повторно код через 34 секунд</label>
+                <label onClick={() => setStage("register")} className="auth-link">Изменить номер телефона</label>
             </div>
-        )
-    } else {
-        return (
-            <div className="auth_main">
-                <div className="auth-icon-wrapper">
-                    <Icon type="donorsearch_logo" width="43" height="30"/>
-                </div>
 
-                <div className="auth_form">
-                    <h3 className="auth_title">Подтвердите ваш номер</h3>
-
-                    <div className="mb-3">
-                        <label className="auth_label mb-2">Мы отправили код на {phone}</label>
-                        <Input value={code} onChange={(e) => setCode(e.target.value)}
-                               placeholder="Введите код из СМС"/>
-                    </div>
-                </div>
-
-                <div>
-                    <div className="d-grid mb-2">
-                        <Button onClick={check_code} text="Проверить код" theme="gradient"/>
-                    </div>
-                    <label onClick={resend_code} className="auth-link-grey">Отправить повторно код через 34 секунд</label>
-                    <label onClick={() => setStage("register")} className="auth-link">Изменить номер телефона</label>
-                </div>
-
-            </div>
-        )
-    }
+        </div>
+    )
+    
 };
 
 export default Authorization
