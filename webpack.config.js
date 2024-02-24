@@ -21,9 +21,6 @@ module.exports = {
     port: 3000,
     hot: true,
     historyApiFallback: true,
-    client: {
-        overlay: false,
-    }
     //host: '0.0.0.0',//your ip address
     //port: 49,
     //allowedHosts: 'all'
