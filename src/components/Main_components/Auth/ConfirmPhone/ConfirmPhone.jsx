@@ -17,8 +17,8 @@ const Authorization = ({setStage, phone, user_id}) => {
             })
             .catch((err) => {
                 console.log(err)
-                setConfirmComplete(false)
             });
+        setCode(0)
     }
 
 
@@ -34,6 +34,8 @@ const Authorization = ({setStage, phone, user_id}) => {
             })
             .catch((err) => {
                 console.log(err)
+                setCode(0)
+                setConfirmComplete(false)
             });
     }
 
@@ -63,7 +65,7 @@ const Authorization = ({setStage, phone, user_id}) => {
                     <div className="d-grid mb-2">
                         <Button onClick={check_code} text="Проверить код" theme="gradient"/>
                     </div>
-                    <label onClick={resend_code} className="auth-link">Отправить повторно код через 34 секунд</label>
+                    <label onClick={resend_code} className="auth-link-grey">Отправить повторно код через 34 секунд</label>
                     <label onClick={() => setStage("register")} className="auth-link">Изменить номер телефона</label>
                 </div>
 

@@ -37,7 +37,6 @@ const Authorization = ({setStage}) => {
                 console.log(response.data)
                 setRegistrationComplete(true)
                 setUserId(response.data.user_id)
-                // setStage('confirm_email')
             })
             .catch((err) => {
                 console.log(err)
@@ -47,12 +46,14 @@ const Authorization = ({setStage}) => {
     }
 
     if (usernameIsEmail && registrationComplete) {
+        setStage("confirm_email")
         return (
             <div>
                 <ConfirmEmail setStage={setStage} email={username} user_id={user_id}/>
             </div>
         )
     } else if (usernameIsPhone && registrationComplete) {
+        setStage("confirm_phone")
         return (
             <div>
                 <ConfirmPhone setStage={setStage} phone={username} user_id={user_id}/>

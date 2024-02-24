@@ -16,9 +16,11 @@ const Authorization = ({setStage, email, user_id}) => {
             })
             .catch((err) => {
                 console.log(err)
-                setConfirmComplete(false)
+
             });
+        setConfirmComplete(false)
     }
+
     const check_code = async () => {
         await axios.post("https://hackaton.donorsearch.org/api/auth/confirm_email_reg/", {
             code: code,
@@ -26,7 +28,7 @@ const Authorization = ({setStage, email, user_id}) => {
             email: email,
         })
             .then((response) => {
-                console.log(response)
+                console.log(response.data)
                 setConfirmComplete(true)
             })
             .catch((err) => {
@@ -61,7 +63,7 @@ const Authorization = ({setStage, email, user_id}) => {
                     <div className="d-grid mb-2">
                         <Button onClick={check_code} text="Проверить код" theme="gradient"/>
                     </div>
-                    <label onClick={resend_code} className="auth-link">Отправить повторно код через 34 секунд</label>
+                    <label onClick={resend_code} className="auth-link-grey">Отправить повторно код через 34 секунд</label>
                     <label onClick={() => setStage("register")} className="auth-link">Изменить адрес электронной
                         почты</label>
                 </div>
