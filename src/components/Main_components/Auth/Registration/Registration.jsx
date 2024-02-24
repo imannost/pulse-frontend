@@ -49,13 +49,13 @@ const Authorization = ({setStage}) => {
     if (usernameIsEmail && registrationComplete) {
         return (
             <div>
-                <ConfirmEmail email={username} user_id={user_id}/>
+                <ConfirmEmail setStage={setStage} email={username} user_id={user_id}/>
             </div>
         )
     } else if (usernameIsPhone && registrationComplete) {
         return (
             <div>
-                <ConfirmPhone phone={username} user_id={user_id}/>
+                <ConfirmPhone setStage={setStage} phone={username} user_id={user_id}/>
             </div>
         )
     } else {

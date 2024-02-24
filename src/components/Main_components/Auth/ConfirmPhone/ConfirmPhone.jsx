@@ -17,6 +17,7 @@ const Authorization = ({setStage, phone, user_id}) => {
             })
             .catch((err) => {
                 console.log(err)
+                setConfirmComplete(false)
             });
     }
 
@@ -30,7 +31,6 @@ const Authorization = ({setStage, phone, user_id}) => {
             .then((response) => {
                 console.log(response)
                 setConfirmComplete(true)
-                // setStage("home")
             })
             .catch((err) => {
                 console.log(err)

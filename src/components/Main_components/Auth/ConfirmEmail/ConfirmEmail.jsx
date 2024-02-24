@@ -16,6 +16,7 @@ const Authorization = ({setStage, email, user_id}) => {
             })
             .catch((err) => {
                 console.log(err)
+                setConfirmComplete(false)
             });
     }
     const check_code = async () => {
@@ -27,7 +28,6 @@ const Authorization = ({setStage, email, user_id}) => {
             .then((response) => {
                 console.log(response)
                 setConfirmComplete(true)
-                setStage("home")
             })
             .catch((err) => {
                 console.log(err)
