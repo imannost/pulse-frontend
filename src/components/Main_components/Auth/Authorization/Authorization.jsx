@@ -3,7 +3,7 @@ import "../Auth.pcss";
 import { Input, Button, Icon } from "/src/components/ui";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import  { setIsAuthorized } from '/src/store/authSlice'
+import  { setSessionID } from '/src/store/authSlice'
 
 const Authorization = ({setStage}) => {
 
@@ -18,7 +18,8 @@ const Authorization = ({setStage}) => {
         password: password,
       })
       .then((response) => {
-        dispatch(setIsAuthorized({is_authorized: true}))
+        console.log(response)
+        // dispatch(setSessionID({session_id: true}))
       })
       .catch((err) => {
         console.log(err)
