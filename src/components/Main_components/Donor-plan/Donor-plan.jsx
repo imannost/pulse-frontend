@@ -39,7 +39,6 @@ const DonorPlan = () => {
 
     return (
         <div className="plan_main">
-            {data}
             <p onClick={() => setStage(prevState => prevState - 1)}>назад</p>
             <div className="plan_wrapper">
                 <div style={{width: "100%"}}>

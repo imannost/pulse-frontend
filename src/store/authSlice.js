@@ -3,15 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        isAuthorized: false,
+        sessionID: false,
     },
     reducers: {
         setIsAuthorized(state, action) {
-            state.isAuthorized = action.payload.is_authorized
+            state.sessionID = action.payload.session_id
         },
     }
 })
 
-export const { setIsAuthorized } = authSlice.actions;
+export const { setSessionID } = authSlice.actions;
 
 export default authSlice.reducer;
