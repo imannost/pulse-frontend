@@ -5,8 +5,10 @@ import {Icon} from "/src/components/ui"
 
 const Checkbox = ({ onClick, icon, text, theme, iconAfter, disabled }) => {
 
+
+
     return (
-        <div >
+        <div>
           <div className="custom-control custom-checkbox">
             <input
               type="checkbox"
